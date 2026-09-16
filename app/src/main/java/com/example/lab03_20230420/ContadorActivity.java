@@ -15,7 +15,7 @@ public class ContadorActivity extends AppCompatActivity {
         binding = ActivityContadorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Instanciar el ViewModel
+        // Instanciar el V iewModel
         viewModel = new ViewModelProvider(this).get(ContadorViewModel.class);
 
         // Observar los cambios en el número para actualizar el TextView automáticamente
@@ -23,7 +23,7 @@ public class ContadorActivity extends AppCompatActivity {
             binding.tvNumeroContador.setText(String.valueOf(valor));
         });
 
-        // Observar si está contando para deshabilitar el botón y evitar múltiples clicks
+        // Observar si está contando para desthabilitar el botón y evitar múltiples clicks
         viewModel.getIsCounting().observe(this, isCounting -> {
             binding.btnIniciarContador.setEnabled(!isCounting);
         });
@@ -33,7 +33,7 @@ public class ContadorActivity extends AppCompatActivity {
             viewModel.iniciarContador();
         });
 
-        // Botón Regresar (simplemente cierra el activity y vuelve al menú)
+        // Botón Regresar
         binding.btnRegresar.setOnClickListener(v -> {
             finish();
         });

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // --- MÉTODOS DE VERIFICACIÓN DE RED (Plantilla Oficial) ---
+    // --- MÉTODOS DE VERIFICACIÓN DE RED---
     public boolean tengoConexion() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         boolean tieneConexion = false;

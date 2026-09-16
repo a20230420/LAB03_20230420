@@ -28,20 +28,18 @@ public class DetallePeliculaActivity extends AppCompatActivity {
         binding = ActivityDetallePeliculaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Recibir el ID que mandamos desde MainActivity
         String idPelicula = getIntent().getStringExtra("ID_PELICULA");
 
         if (idPelicula != null && !idPelicula.isEmpty()) {
             buscarPelicula(idPelicula);
         }
 
-        // Botón Regresar con MaterialAlertDialog
         binding.btnRegresarDetalle.setOnClickListener(v -> mostrarDialogoRegresar());
     }
 
     private void buscarPelicula(String imdbId) {
         OmdbService service = new Retrofit.Builder()
-                .baseUrl("https://www.omdbapi.com")
+                .baseUrl("https://www.omdbapi.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(OmdbService.class);
@@ -70,10 +68,10 @@ public class DetallePeliculaActivity extends AppCompatActivity {
                 .setTitle("Confirmación")
                 .setMessage("¿Desea volver al menú principal?")
                 .setPositiveButton(R.string.ok, (dialog, which) -> {
-                    finish(); // Cierra el activity y vuelve al main
+                    finish();
                 })
                 .setNegativeButton(R.string.cancel, (dialog, which) -> {
-                    dialog.dismiss(); // Se queda en la misma pantalla
+                    dialog.dismiss();
                 })
                 .show();
     }

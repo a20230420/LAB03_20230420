@@ -28,7 +28,7 @@ public class ContadorViewModel extends ViewModel {
         }
         executorService = Executors.newSingleThreadExecutor();
 
-        // Hilo de trabajo en background (Worker thread)
+        // Hilo de trabajo en background
         executorService.execute(() -> {
             for (int i = 1; i <= 20; i++) {
                 if (Thread.currentThread().isInterrupted()) break;
